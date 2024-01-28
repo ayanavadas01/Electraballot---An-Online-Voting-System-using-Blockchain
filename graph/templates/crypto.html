@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Group Key Project</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Eterna - v4.6.0
+  * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 23456789</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1><a href="index.html">Medical Security</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{{ url_for('first')}}">Home</a></li>
+           
+          <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
+	<li><a class="nav-link scrollto" href="{{ url_for('index')}}">Main</a></li
+		         
+        
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      
+
+    </div>
+    
+    <style>
+    table {
+        width: 100%;
+        border: solid 1px;
+        border-collapse: collapse;
+        word-break: break-word;
+        text-align: center;
+        padding: 20px;
+    }
+
+    td,th {
+        border: solid 1px;
+    }
+
+    .result, .time{
+        width: 100%;
+        word-break: break-all;
+        font-weight: bold;
+     }
+
+     .time{
+        color: red;
+     }
+
+     .result{
+        color: green;
+     }
+
+     .public{
+        background: #c5f3c5;
+    }
+
+    .private{
+        background: #fbebeb;
+    }
+
+
+
+    </style>
+</header><!-- End Header -->
+
+<body>
+<h2>Encryption</h2>
+
+<table style="width: 100%">
+    <tr>
+        <th style="min-width: 150px" colspan="2">Variable</th>
+        <th>Value</th>
+    </tr>
+    <tr class="public">
+        <td rowspan="2" style="width: 100px">Public</td>
+        <td>n</td>
+        <td>{{n}}</td>
+    </tr>
+    <tr class="public">
+        <td>e</td>
+        <td>{{e}}</td>
+    </tr>
+    <tr class="private">
+        <td rowspan="3" style="min-width: 50px">Private</td>
+        <td>d</td>
+        <td>{{d}}</td>
+    </tr>
+    <tr class="private">
+        <td>p</td>
+        <td>{{p}}</td>
+    </tr>
+    <tr class="private">
+        <td>q</td>
+        <td>{{q}}</td>
+    </tr>
+</table>
+
+
+<br/>
+
+<hr/>
+<h3>Encrypt/Decrypt Number</h3>
+<form method="POST" action="{{ url_for('crypto_number') }}">
+    Use: <input type="radio" value="public" name="keytype" {% if not keytype or keytype=="public" %} checked {%endif%}>
+    Public Key
+    <input type="radio" value="private" name="keytype" {% if keytype and keytype=="private" %} checked {%endif%}>
+    Private Key
+    <br/>
+    Input: <input type="input" name="input" value="{{input}}" required style="min-width: 90%">
+    <input type="submit" value="Submit"><br/>
+    Output: <span class="result">{{ number_output }}</span><br/>
+    {% if time_needed and number_output%}
+    Time Needed: <span class="time">{{ time_needed }}</span><br/>
+    {% endif %}
+    <br />
+    {% if number_output_crt %}
+    Output (CRT): <span class="result">{{ number_output }}</span><br/>
+    Time Needed (CRT): <span class="time">{{ time_needed_crt }}</span><br/>
+    {% endif %}
+</form>
+
+<hr/>
+<h3>Encrypt/Decrypt Vote Data</h3>
+<form method="POST" action="{{ url_for('crypto_text') }}">
+    Use: <input type="radio" value="public" name="keytype" {% if not keytype or keytype=="public" %} checked {%endif%}>
+    Public Key
+    <input type="radio" value="private" name="keytype" {% if keytype and keytype=="private" %} checked {%endif%}>
+    Private Key
+    <br/>
+    Input: <input type="text" name="input_text" value="{{input_text}}" required style="min-width: 90%">
+    <input type="submit" value="Submit"><br>
+    Output:
+    <div class="result">{{ text_output }}</div>
+    {% if time_needed and text_output %}
+    Time Needed: <span class="time">{{ time_needed }}</span><br/>
+    {% endif %}
+</form>
+
+<h3>Decrypt/Encrypt Vote Data</h3>
+<form method="POST" action="{{ url_for('crypto_text_dec') }}">
+    Use: <input type="radio" value="public" name="keytype" {% if not keytype or keytype=="public" %} checked {%endif%}>
+    Public Key
+    <input type="radio" value="private" name="keytype" {% if keytype and keytype=="private" %} checked {%endif%}>
+    Private Key
+    <br/>
+    Input: <input type="input" name="input_text_dec" value="{{input_text_dec}}" required style="min-width: 90%">
+    <input type="submit" value="Submit"><br>
+    Output:
+    <div class="result">{{ text_output_dec }}</div>
+    {% if time_needed and text_output_dec %}
+    Time Needed: <span class="time">{{ time_needed }}</span><br/>
+    {% endif %}
+</form>
+
+<br/>
+<br/>
+<br/>
+<div>
+    {% if n > 0 and (e > 0 or d > 0) %}
+    <a href="{{ url_for('index') }}">Back to Home Page</a>
+    {% endif %}
+</div>
+</body>
+</html>

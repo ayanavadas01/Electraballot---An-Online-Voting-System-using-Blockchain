@@ -1,0 +1,11 @@
+/* Example admin_custom.css */
+
+/* Modify background color of the admin header */
+#branding {
+    background-color: #cc0b0b;
+}
+
+/* Modify font color of the sidebar */
+#content-related .module h2, #content-related .module caption {
+    color: #b10000;
+}
