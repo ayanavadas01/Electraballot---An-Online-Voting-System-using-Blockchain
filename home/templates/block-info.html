@@ -3,38 +3,38 @@
 {% load static %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/block-info.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/block-info.css' %}">
 
-    <script src="{% static 'scripts/base.js' %}"></script>
-    <script>
-        $(document).ready(function(){
-            hide_loading();
-            var block_id = {{this_block.id}};
-            showAlert(
-            'Block Information.',
-            'rgba(201, 136, 255, 0.3)', 'rgb(102, 0, 128)');
+<script src="{% static 'scripts/base.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        hide_loading();
+        var block_id = {{ this_block.id }
+    };
+    showAlert(
+        'Block Information.',
+        'rgba(201, 136, 255, 0.3)', 'rgb(102, 0, 128)');
 
-            $('.sync-block').click(function(){
-                show_loading('Please wait... we are syncing this block.');
-                    $.ajax({
+    $('.sync-block').click(function () {
+        show_loading('Please wait... we are syncing this block.');
+        $.ajax({
 
-                        type:"GET",
-                        url: "/sync-block/",
-                        data: {'block-id': block_id},
-                        success: function( data )
-                        {
-                            show_loading('Synchronisation complete. Please wait... while the block is being loaded.');
-                            if(data.success){
-                                location.href = '/block-info/?id='+block_id;
-                            }
+            type: "GET",
+            url: "/sync-block/",
+            data: { 'block-id': block_id },
+            success: function (data) {
+                show_loading('Synchronisation complete. Please wait... while the block is being loaded.');
+                if (data.success) {
+                    location.href = '/block-info/?id=' + block_id;
+                }
 
-                            else {
-                            }
-                        }
-                    });
-            });
+                else {
+                }
+            }
         });
-    </script>
+    });
+        });
+</script>
 {% endblock %}
 
 {% block main_content %}
@@ -107,4 +107,3 @@
 </div>
 
 {% endblock %}
-
