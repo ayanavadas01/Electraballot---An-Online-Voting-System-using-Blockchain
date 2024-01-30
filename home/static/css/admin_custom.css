@@ -1,42 +1,33 @@
-/* Example admin_custom.css */
-
-/* Modify background color of the admin header */
-
-
-
-/* Modify font color of the sidebar */
-
-body{
+body {
   width: 100%;
   height: 100%;
-  background-color: rgba(238, 206, 137, 0.74);
+  background-color: rgba(255, 252, 91, 0.464);
 }
 /* navbar */
 
-#header{
-  background: linear-gradient(90deg,#bb5908,#136921);
-  
+#header {
+  background: linear-gradient(90deg, #f59b15, #1c912f);
 }
-#branding a{
+#branding a {
   font-size: 30px;
   font-weight: 800;
   color: rgb(126, 87, 87);
   font-family: 'Roboto', sans-serif;
 }
 
-#content h1{
+#content h1 {
   font-size: 20px;
   font-weight: 700;
   color: black;
 }
-#content-main table caption{
-  background: linear-gradient(270deg,#1ba364,#b3c2b6);
+#content-main table caption {
+  background: linear-gradient(90deg, #ffc812, #6cff73);
 }
-#content-main a{
+#content-main a {
   color: #000000;
   font-weight: 650;
 }
-  
+
 #content-related .module h2,
 #content-related .module caption {
   color: #298f3a;
@@ -44,4 +35,56 @@ body{
 #content-related .module h3,
 #content-related .module caption {
   color: #000000;
+}
+
+/* Example admin_custom.css */
+
+/* Text color as a mix of two colors */
+#branding h1,
+#branding h1 a:link,
+#branding h1 a:visited {
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 252, 252, 0),
+    #e7e7e7,
+    #e7e7e7
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+div.breadcrumbs {
+  background: #817430;
+  padding: 10px 40px;
+  border: none;
+  font-size: 14px;
+  color: #c4dce8;
+  text-align: left;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+  margin: 0;
+  padding: 8px;
+  font-weight: 400;
+  font-size: 13px;
+  text-align: left;
+  background: #bb804a;
+  color: #fff;
+}
+
+.button,
+input[type='submit'],
+input[type='button'],
+.submit-row input,
+a.button {
+  background: #0cdd39;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
 }
