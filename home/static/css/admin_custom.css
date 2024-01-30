@@ -1,12 +1,47 @@
 /* Example admin_custom.css */
 
 /* Modify background color of the admin header */
-#branding {
-  background-color: #333;
-}
+
+
 
 /* Modify font color of the sidebar */
+
+body{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(238, 206, 137, 0.74);
+}
+/* navbar */
+
+#header{
+  background: linear-gradient(90deg,#bb5908,#136921);
+  
+}
+#branding a{
+  font-size: 30px;
+  font-weight: 800;
+  color: rgb(126, 87, 87);
+  font-family: 'Roboto', sans-serif;
+}
+
+#content h1{
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
+#content-main table caption{
+  background: linear-gradient(270deg,#1ba364,#b3c2b6);
+}
+#content-main a{
+  color: #000000;
+  font-weight: 650;
+}
+  
 #content-related .module h2,
 #content-related .module caption {
-  color: #fff;
+  color: #298f3a;
+}
+#content-related .module h3,
+#content-related .module caption {
+  color: #000000;
 }
